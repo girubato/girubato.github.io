@@ -1,22 +1,37 @@
 var addressPoints = [
   [
-    "Berkeley CA, USA",
-    37.8708393,
-    -122.2728638
+    "University of Richmond, VA",
+    37.575104, 
+    -77.540810
   ],
   [
-    "London, UK",
-    51.5073219,
-    -0.1276473
+    "Columbia Telecommunications Corporation, MD",
+    39.030830, 
+    -77.074722
   ],
   [
-    "San Francisco, California",
-    37.7792808,
-    -122.4192362
+    "California Department of Technology, CA",
+    38.579281, 
+    -121.488281
   ],
   [
-    "Los Angeles, CA",
-    34.0543942,
-    -118.2439408
+    "New Mexico Department of Information Technology, NM",
+    35.672417, 
+    -105.956558
+  ],
+  [
+    "City of Boise, ID",
+    43.615131, 
+    -116.201508
+  ],
+  [
+    "Englewood Connect, City of Chicago, IL",
+    41.883675, 
+    -87.657097
+  ],
+  [
+    "Empire State Development, NY",
+    40.749630, 
+    -73.974701
   ]
 ];
