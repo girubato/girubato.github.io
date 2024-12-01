@@ -37,13 +37,13 @@ Work experience
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Python (Pandas, Geopandas, Selenium, Flask)
+* Data Analysis and Modeling
+* GIS Technologies (ArcGIS Pro, QGIS, OSMnx)
+* Full-stack Development (Flask, SQLAlchemy, Heroku)
+* Cloud Computing (AWS EC2, S3)
 
+<!-- This is a comment
 Publications
 ======
   <ul>{% for post in site.publications %}
@@ -65,3 +65,4 @@ Teaching
 Service and leadership
 ======
 * Currently signed in to 43 different slack teams
+-->
