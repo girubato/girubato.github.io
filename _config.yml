@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Your Name / Site Title"
+title                    : "Gwyneth Welsh | Geospatial Analyst & Developer"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Gwyneth Welsh"
 description              : &description "personal description"
 url                      : https://girubato.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -29,7 +29,7 @@ comments:
   facebook:
     appid                :
     num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
+    colorscheme          : "dark" # "light" (default), "dark"
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
   branch                 : "gh-pages" # "master", "gh-pages"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "About the Author"
   avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
+  bio              : "Geospatial Data Analyst with expertise in automating spatial database management and GIS workflows. Proficient in Python, SQL, and cloud technologies, with a proven track record of developing software solutions that streamline data processing and enhance operational efficiency. Adept at leveraging spatial data for decision-making and problem-solving in scientific and commercial applications."
   location         : "Richmond, VA"
   employer         :
   pubmed           : 
@@ -255,7 +255,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/New_York # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
