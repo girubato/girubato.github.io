@@ -37,11 +37,13 @@ Work experience
   
 Skills
 ======
-* Python (Pandas, Geopandas, Selenium, Flask)
-* Data Analysis and Modeling
-* GIS Technologies (ArcGIS Pro, QGIS, OSMnx)
+* Python (Pandas, Geopandas, ArcPy, Numpy, Selenium, Flask)
+* Data Analysis, Database Management, and Modeling (SQL, Microsoft Access, Plotly Dash)
+* GIS Technologies (ArcGIS Pro, ESRI Dashboards, QGIS)
+* Microsoft Excel, MS Word, MS PowerPoint
 * Full-stack Development (Flask, SQLAlchemy, Heroku)
 * Cloud Computing (AWS EC2, S3)
+* Internal and cross-team collaboration and communication
 
 <!-- This is a comment
 Publications
