@@ -80,10 +80,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "About the Author"
+  name             : "About Me"
   avatar           : "profile.png"
-  bio              : "Geospatial Data Analyst with expertise in automating spatial database management and GIS workflows. Proficient in Python, SQL, and cloud technologies, with a proven track record of developing software solutions that streamline data processing and enhance operational efficiency. Adept at leveraging spatial data for decision-making and problem-solving in scientific and commercial applications."
-  location         : "Richmond, VA"
+  bio              : "I’m a Geospatial Data Analyst with experience in automating spatial database management and GIS workflows. By leveraging Python and ArcGIS tools, I strive to streamline complex data processes to help teams make better decisions faster."
+  location         : 
   employer         :
   pubmed           : 
   googlescholar    : 
