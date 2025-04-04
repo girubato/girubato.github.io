@@ -18,13 +18,13 @@ Work experience
 ======
 * August 2022 - Present: GIS Analyst
   * Columbia Telecommunications Corporation, Maryland
-  * Developed a Flask application with full-stack capabilities, using SQLAlchemy for user database management and seamless front-to-back-end integration. Optimized data storage efficiency through Amazon S3. Deployed the application using Heroku.
-  * Developed street network analysis software in Python, utilizing Pandas, Geopandas, OSMnx, and NetworkX, to optimize fiber route designs using graph theory and cost modeling.
-  * Used Amazon Elastic Compute Cloud (EC2) to ensure reliable and scalable computing resources, enabling the efficient processing of large datasets.
-  * Collaborated with the engineering team to develop software solutions for construction planning.
-  * Transformed cost estimation models from VBA into Python, significantly improving efficiency.
-  * Developed Selenium scripts for automated data retrieval and parsing from the FCC’s website.
-  * Created custom geoprocessing tools using ArcGIS Pro’s Python integrated development application.
+  * Designed and implemented Python-based models to estimate broadband coverage, grant eligibility, and funding outcomes for the BEAD digital equity program.
+  * Developed geospatial analytics tools using Pandas, Geopandas, OSMnx, and NetworkX to optimize fiber route designs, leveraging graph theory and cost modeling.
+  * Automated geoprocessing workflows and developed interactive web-based dashboards using ArcGIS API for Python to visualize broadband expansion scenarios.
+  * Created a Flask-based web application integrating SQLAlchemy for database management and Amazon S3 for efficient data storage, deployed on Heroku.
+  * Leveraged AWS EC2 for scalable computing to handle large geospatial datasets and grant funding simulations.
+  * Transformed legacy cost estimation models from VBA into Python, improving efficiency and reproducibility.
+  * Developed Selenium-based scripts for automated data retrieval and parsing from the FCC’s broadband data portal.
 
 * Summer 2021: Physics Research Assistant, UR Fellowship Recipient
   * University of Richmond
@@ -37,13 +37,31 @@ Work experience
   
 Skills
 ======
-* Python (Pandas, Geopandas, ArcPy, Numpy, Selenium, Flask)
-* Data Analysis, Database Management, and Modeling (SQL, Microsoft Access, Plotly Dash)
-* GIS Technologies (ArcGIS Pro, ESRI Dashboards, QGIS)
-* Microsoft Excel, MS Word, MS PowerPoint
-* Full-stack Development (Flask, SQLAlchemy, Heroku)
-* Cloud Computing (AWS EC2, S3)
-* Internal and cross-team collaboration and communication
+#### **Programming & Data Analysis**  
+- **Python**:  
+  - Data Analysis & Modeling: Pandas, NumPy, NetworkX, OSMnx  
+  - Geospatial Analytics: GeoPandas, ArcPy, Shapely  
+  - Automation & Web Scraping: Selenium, BeautifulSoup  
+  - Web Development: Flask, REST APIs, SQLAlchemy  
+
+- **Database Management**:  
+  - SQL (PostgreSQL, SQLite), Microsoft Access  
+  - ORM frameworks (SQLAlchemy), cloud-based storage (Amazon S3)  
+
+- **Data Visualization**:  
+  - Interactive Dashboards: Plotly Dash, ArcGIS API for Python, ESRI Dashboards  
+  - Geospatial Mapping: ArcGIS Pro, QGIS, Matplotlib Pyplot, Folium  
+
+#### **Cloud & DevOps**  
+- **Cloud Platforms**: AWS (EC2, S3)
+- **Remote Server Management**: Deployed and maintained applications on cloud-based headless Linux images. Configured services, permissions, and dependencies via SSH.
+- **Containerization & Deployment**: Docker
+- **Workflow Automation**: CI/CD pipelines
+
+#### **Software & Tools**  
+- **Productivity**: Microsoft 365 (Excel, Word, PowerPoint), Jupyter Notebooks  
+- **Collaboration**: Git/GitHub, Agile/Scrum methodologies
+- **Operating Systems**: UNIX/Linux
 
 <!-- This is a comment
 Publications
