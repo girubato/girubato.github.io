@@ -37,31 +37,31 @@ Work experience
   
 Skills
 ======
-#### **Programming & Data Analysis**  
-- **Python**:  
-  - Data Analysis & Modeling: Pandas, NumPy, NetworkX, OSMnx  
-  - Geospatial Analytics: GeoPandas, ArcPy, Shapely  
-  - Automation & Web Scraping: Selenium, BeautifulSoup  
-  - Web Development: Flask, REST APIs, SQLAlchemy  
+* **Programming & Data Analysis**  
+  * **Python**:  
+    * Data Analysis & Modeling: Pandas, NumPy, NetworkX, OSMnx  
+    * Geospatial Analytics: GeoPandas, ArcPy, Shapely  
+    * Automation & Web Scraping: Selenium, BeautifulSoup  
+    * Web Development: Flask, REST APIs, SQLAlchemy  
+  
+  * **Database Management**:  
+    * SQL (PostgreSQL, SQLite), Microsoft Access  
+    * ORM frameworks (SQLAlchemy), cloud-based storage (Amazon S3)  
+  
+  * **Data Visualization**:  
+    * Interactive Dashboards: Plotly Dash, ArcGIS API for Python, ESRI Dashboards  
+    * Geospatial Mapping: ArcGIS Pro, QGIS, Matplotlib Pyplot, Folium  
 
-- **Database Management**:  
-  - SQL (PostgreSQL, SQLite), Microsoft Access  
-  - ORM frameworks (SQLAlchemy), cloud-based storage (Amazon S3)  
+* **Cloud & DevOps**  
+  * **Cloud Platforms**: AWS (EC2, S3)
+  * **Remote Server Management**: Headless UNIX/Linux servers, CLI/SSH
+  * **Containerization & Deployment**: Docker, Heroku
+  * **Workflow Automation**: CI/CD pipelines
 
-- **Data Visualization**:  
-  - Interactive Dashboards: Plotly Dash, ArcGIS API for Python, ESRI Dashboards  
-  - Geospatial Mapping: ArcGIS Pro, QGIS, Matplotlib Pyplot, Folium  
-
-#### **Cloud & DevOps**  
-- **Cloud Platforms**: AWS (EC2, S3)
-- **Remote Server Management**: Deployed and maintained applications on cloud-based headless Linux images. Configured services, permissions, and dependencies via SSH.
-- **Containerization & Deployment**: Docker
-- **Workflow Automation**: CI/CD pipelines
-
-#### **Software & Tools**  
-- **Productivity**: Microsoft 365 (Excel, Word, PowerPoint), Jupyter Notebooks  
-- **Collaboration**: Git/GitHub, Agile/Scrum methodologies
-- **Operating Systems**: UNIX/Linux
+* **Software & Tools**  
+  * **Productivity**: Microsoft 365 (Excel, Word, PowerPoint, Visio), Jupyter Notebooks  
+  * **Collaboration**: Git/GitHub, Agile/Scrum methodologies
+  * **Operating Systems**: UNIX/Linux, Microsoft Windows, macOS
 
 <!-- This is a comment
 Publications
