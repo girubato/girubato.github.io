@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "About Me"
   avatar           : "profile.png"
-  bio              : "I’m a Geospatial Data Analyst with experience in automating spatial database management and GIS workflows. By leveraging Python and ArcGIS tools, I strive to streamline complex data processes to help teams make better decisions faster."
+  bio              : "I’m a Geospatial Data Analyst with experience in automating spatial database management and GIS workflows, particularly using Python, SQL, and GIS tool suites."
   location         : 
   employer         :
   pubmed           : 
