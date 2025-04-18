@@ -46,7 +46,7 @@ The UI consists of:
 ### **Preview Section (`userboxRef`)**  
 The live preview is a `<div>` styled dynamically via React state:  
 
-```jsx
+```javascript
 <div className="userbox-preview" ref={userboxRef}>
   <div
     className="userbox"
@@ -69,7 +69,7 @@ Users adjust:
 - **Font size** (`<input type="number">` bound to `fontSize` state).  
 - **Colors** (`react-color` pickers for background/text/border).  
 
-```jsx
+```javascript
 <SketchPicker 
   color={backgroundColor} 
   onChange={(color) => setBackgroundColor(color.hex)} 
@@ -83,7 +83,7 @@ Users adjust:
 ### **Text and Font Size**  
 Basic input fields update state on change:  
 
-```jsx
+```javascript
 <input 
   type="text" 
   value={text} 
@@ -96,7 +96,7 @@ Users can:
 1. **Upload a file** (handled via `URL.createObjectURL`).  
 2. **Load from a URL** (fetched when clicking "Load Image").  
 
-```jsx
+```javascript
 const handleImageUpload = (e) => {
   const file = e.target.files[0];
   if (file) {
@@ -115,7 +115,7 @@ const handleLoadImage = () => {
 
 The **`html2canvas`** library captures the `userbox-preview` div and converts it to a PNG:  
 
-```jsx
+```javascript
 const handleDownload = () => {
   html2canvas(userboxRef.current).then((canvas) => {
     const link = document.createElement('a');
