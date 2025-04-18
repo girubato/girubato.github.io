@@ -7,11 +7,11 @@ collection: portfolio
 A **userbox** is a small, stylized graphic often used in online communities (forums, wikis, blogs, you name it) to display user information, affiliations, or personality traits. Traditionally, creating these requires manual image editing—a tedious process for non-designers.  
 
 To practice building interactive web applications and solve the tedious nature of manually creating userbox graphics, I created a **Userbox Generator** as a React-based web app that lets users:  
-✅ **Customize text, colors, and images** in real-time.  
-✅ **Preview changes instantly** before exporting.  
-✅ **Download the final design** as a PNG.  
+1. **Customize text, colors, and images** in real-time.  
+2. **Preview changes instantly** before exporting.  
+3. **Download the final design** as a PNG.  
 
-!(/images/userboxgenerator.png)
+<img src='/images/userboxgenerator.png'>
 
 Below, I’ll break down the technical implementation, design choices, and lessons learned.  
 
