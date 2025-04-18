@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Gwyneth Welsh | Geospatial Analyst & Developer"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,4 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-<img src='/images/skills_diagram.png'>
+### Welcome to my site!
+
+Below is a visualization showing what I'm all about, made using NetworkX.
+
+<a href="https://girubato.github.io/images/skills_diagram.png"><img src='/images/skills_diagram.png'></a>
