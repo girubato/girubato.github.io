@@ -1,6 +1,6 @@
 ---
 title: "Creating a Dynamic Userbox Generator with React"
-excerpt: "A small project that helped me learn how to create interactive React-based web applications. <br/><img src='/images/500x300.png'>"
+excerpt: "A small project that helped me learn how to create interactive React-based web applications. <br/><img src='/images/userboxgenerator.png'>"
 collection: portfolio
 ---
 
@@ -10,6 +10,8 @@ To practice building interactive web applications and solve the tedious nature o
 ✅ **Customize text, colors, and images** in real-time.  
 ✅ **Preview changes instantly** before exporting.  
 ✅ **Download the final design** as a PNG.  
+
+!(/images/userboxgenerator.png)
 
 Below, I’ll break down the technical implementation, design choices, and lessons learned.  
 
