@@ -46,6 +46,7 @@ The UI consists of:
 ### **Preview Section (`userboxRef`)**  
 The live preview is a `<div>` styled dynamically via React state:  
 
+<!-- {% raw %} -->
 ```javascript
 <div className="userbox-preview" ref={userboxRef}>
   <div
@@ -59,6 +60,7 @@ The live preview is a `<div>` styled dynamically via React state:
   </div>
 </div>
 ```
+<!-- {% endraw %} -->
 
 - **`useRef`** hooks capture the DOM element for `html2canvas` to convert it to an image later.  
 - **Inline styles** update instantly when state changes (e.g., `backgroundColor`).  
@@ -69,12 +71,14 @@ Users adjust:
 - **Font size** (`<input type="number">` bound to `fontSize` state).  
 - **Colors** (`react-color` pickers for background/text/border).  
 
+<!-- {% raw %} -->
 ```javascript
 <SketchPicker 
   color={backgroundColor} 
   onChange={(color) => setBackgroundColor(color.hex)} 
 />
 ```
+<!-- {% endraw %} -->
 
 ---
 
