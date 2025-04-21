@@ -10,6 +10,6 @@ redirect_from:
 
 ### Welcome to my site!
 
-Below is a visualization showing what I'm all about, made using NetworkX.
+#### Below is a visualization showing what I'm all about.
 
 <a href="https://girubato.github.io/images/skills_diagram.png"><img src='/images/skills_diagram.png'></a>
