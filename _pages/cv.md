@@ -17,7 +17,6 @@ Education
 Work experience
 ======
 * August 2022 - Present: GIS Analyst
-  * Columbia Telecommunications Corporation, Maryland
     * Designed and implemented Python-based models to estimate broadband coverage, grant eligibility, and funding outcomes for the BEAD digital equity program.
     * Developed geospatial analytics tools using Pandas, Geopandas, OSMnx, and NetworkX to optimize fiber route designs, leveraging graph theory and cost modeling.
     * Automated geoprocessing workflows and developed interactive web-based dashboards using ArcGIS API for Python to visualize broadband expansion scenarios.
@@ -26,13 +25,11 @@ Work experience
     * Transformed legacy cost estimation models from VBA into Python, improving efficiency and reproducibility.
     * Developed Selenium-based scripts for automated data retrieval and parsing from the FCC’s broadband data portal.
 
-* Summer 2021: Physics Research Assistant, UR Fellowship Recipient
-  * University of Richmond
+* Summer 2021: Physics Research Assistant
     * Conducted research into exceptional points in topology, an emerging theory in the field of quantum optics; used Wolfram Language and Mathematica to develop and mathematically model a Hamiltonian that exhibits exceptional topological properties; presented at the 2022 Student Symposium.
     * Authored a comprehensive thesis paper, An Introduction to the Topology of Non-Hermitian Systems and Exceptional Points, using Wolfram Language to create mathematical models and perform data-driven analyses to support research findings.
 
-* Summer 2019: Physics Research Assistant, UR Fellowship Recipient
-  * University of Richmond
+* Summer 2019: Physics Research Assistant
     * Conducted research into stochastic systems as they pertain to problems in thermal and statistical mechanics; used Wolfram Language and Mathematica to model stochastic braid groups and nonequilibrium fluctuations in molecular motors containing a Brownian ratchet.
   
 Skills
