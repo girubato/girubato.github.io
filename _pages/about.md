@@ -17,6 +17,12 @@ I often use cloud platforms like AWS to scale up data processing or host dashboa
 The diagram below maps out the different technologies and methods I use to do that.
 
 ```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+```
+
+```mermaid
 mindmap
   root((Technical Skills))
     Programming & Data Analysis
