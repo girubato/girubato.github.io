@@ -16,4 +16,85 @@ I often use cloud platforms like AWS to scale up data processing or host dashboa
 
 The diagram below maps out the different technologies and methods I use to do that.
 
-<a href="https://girubato.github.io/images/skills_diagram.png"><img src='/images/skills_diagram.png'></a>
+```mermaid
+mindmap
+  root((Technical Skills))
+    Programming & Data Analysis
+      Python
+        Data Analysis & Modeling
+          Pandas
+          NumPy
+          NetworkX
+          OSMnx
+        Geospatial Analytics
+          GeoPandas
+          ArcPy
+          Shapely
+          Rasterio
+          WhiteboxTools
+        Automation & Web
+          Selenium
+          BeautifulSoup
+        Web Development
+          Flask
+          REST APIs
+          SQLAlchemy
+      Database Management
+        SQL
+          PostgreSQL
+          SQLite
+          MySQL
+          Microsoft Access
+        Cloud Storage
+          Amazon S3
+          Google Cloud Storage
+          Sharepoint
+    Data Visualization
+      Interactive Dashboards
+        Plotly Dash
+        ArcGIS API
+        ESRI Dashboards
+        Tableau
+        Power BI
+      Geospatial Mapping
+        ArcGIS Pro
+        QGIS
+        Matplotlib Pyplot
+        Folium
+        Leaflet
+        Mapbox
+    Cloud & DevOps
+      Cloud Platforms
+        AWS
+          EC2
+          S3
+          Lambda
+        Google Cloud
+        Azure
+      Remote Server Management
+        UNIX/Linux
+        CLI/SSH
+      Containerization
+        Docker
+        Kubernetes
+      Deployment
+        Heroku
+        AWS Elastic Beanstalk
+    Software & Tools
+      Productivity
+        Microsoft 365
+          Excel
+          Word
+          PowerPoint
+          Visio
+        Jupyter Notebooks
+        VS Code
+        Cursor IDE
+      Collaboration
+        Git/GitHub
+        Agile/Scrum
+      Operating Systems
+        UNIX/Linux
+        Microsoft Windows
+        macOS
+```
