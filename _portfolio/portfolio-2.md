@@ -1,5 +1,6 @@
 ---
 title: "Creating a Dynamic Userbox Generator with React"
+date: 2025-01-01
 excerpt: "A small project that helped me learn how to create interactive React-based web applications. <br/><img src='/images/userboxgenerator.png'>"
 collection: portfolio
 ---
