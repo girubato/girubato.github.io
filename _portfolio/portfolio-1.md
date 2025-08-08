@@ -1,5 +1,6 @@
 ---
 title: "Building a Housing Density Visualization Tool"
+date: 2024-12-01
 excerpt: "Made it easy to plot visual clusters or traces of scattered plots to highlight whether areas were reaching the building line marking or open space<br/><img src='/images/500x300.png'>"
 collection: portfolio
 ---
