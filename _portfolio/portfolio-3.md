@@ -1,10 +1,10 @@
 ---
 title: "Building an interactive Broadband Data Explorer application using Python, PostgreSQL/PostGIS, and Folium."
 date: 2025-08-10
-excerpt: <br/><img width="900" src="https://github.com/user-attachments/assets/67601fe4-b7d2-40c4-9b1d-f49939c817d5" />
+excerpt: <br/><img width="300" src="https://github.com/user-attachments/assets/67601fe4-b7d2-40c4-9b1d-f49939c817d5" />
 collection: portfolio
 ---
-<img width="1201" height="830" alt="2025-08-10 15_28_39" src="https://github.com/user-attachments/assets/67601fe4-b7d2-40c4-9b1d-f49939c817d5" />
+<img width="900" src="https://github.com/user-attachments/assets/67601fe4-b7d2-40c4-9b1d-f49939c817d5" />
 
 ## Introduction  
 
