@@ -568,13 +568,9 @@
                 <h2>Education</h2>
                 <div class="cv-item">
                     <h3>B.S. in Physics, 2022</h3>
-                    <!-- <div class="cv-date">2022</div>
-                    <p>U of R</p> -->
                 </div>
                 <div class="cv-item">
                     <h3>B.A. in Mathematics and Archaeology, 2022</h3>
-                    <!-- <div class="cv-date">2022</div>
-                    <p>U of R</p> -->
                 </div>
             </div>
             
@@ -808,7 +804,8 @@
             
             // Create earth material with subtle texture
             const textureLoader = new THREE.TextureLoader();
-            const earthTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Moon_texture.jpg/960px-Moon_texture.jpg');
+            // const earthTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Moon_texture.jpg/960px-Moon_texture.jpg');
+            const earthTexture = textureLoader.load(src='assets/Moon_texture.jpg);
             const material = new THREE.MeshPhongMaterial({ 
                 map: earthTexture,
                 transparent: true,
