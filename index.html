@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G. W. | Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Solarized Dark Color Scheme */
+        :root {
+            --base03: #002b36;
+            --base02: #073642;
+            --base01: #586e75;
+            --base00: #657b83;
+            --base0: #839496;
+            --base1: #93a1a1;
+            --base2: #eee8d5;
+            --base3: #fdf6e3;
+            --yellow: #b58900;
+            --orange: #cb4b16;
+            --red: #dc322f;
+            --magenta: #d33682;
+            --violet: #6c71c4;
+            --blue: #268bd2;
+            --cyan: #2aa198;
+            --green: #859900;
+        }
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Mono', 'Monaco', 'Inconsolata', monospace;
+            background-color: var(--base03);
+            color: var(--base0);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+        }
+                
+        #globe-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cyan);
+        }
+
+        /* Sidebar Styles */
+        #sidebar {
+            width: 280px;
+            background-color: var(--base02);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-right: 1px solid var(--base01);
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--base2);
+        }
+
+        .site-description {
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-links {
+            margin-top: auto;
+        }
+
+        .contact-links a {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-links i {
+            width: 20px;
+            margin-right: 10px;
+            color: var(--base1);
+        }
+
+        /* Main Content Styles */
+        #main-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        /* Navigation Styles */
+        #tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--base01);
+            overflow-y: hidden;
+        }
+
+        .tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            background-color: var(--base02);
+            border: 1px solid var(--base01);
+            border-bottom: none;
+            margin-right: 0.5rem;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background-color: var(--base03);
+            color: var(--base2);
+            border-bottom: 1px solid var(--base03);
+            margin-bottom: -1px;
+        }
+
+        /* Page Styles */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Landing Page */
+        #landing h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--base2);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--base1);
+        }
+
+        .intro-text {
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+
+        .featured-work {
+            margin-top: 3rem;
+        }
+
+        .featured-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--base01);
+            padding: 1rem;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+        }
+
+        .featured-item img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 1rem;
+            border-radius: 3px;
+        }
+
+        /* Portfolio Page */
+        .portfolio-filters {
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--base01);
+            color: var(--base0);
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: var(--blue);
+            border-color: var(--blue);
+            color: var(--base03);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            border: 1px solid var(--base01);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .portfolio-info {
+            padding: 1rem;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--base2);
+        }
+
+        /* CV Page */
+        .cv-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .cv-section h2 {
+            color: var(--base2);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--base01);
+        }
+
+        .cv-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-item h3 {
+            color: var(--base1);
+            margin-bottom: 0.3rem;
+        }
+
+        .cv-date {
+            color: var(--base01);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-category h3 {
+            color: var(--base1);
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-list {
+            list-style-type: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.3rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .skill-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+        }
+
+        .skill-sublist {
+            list-style-type: none;
+            margin-top: 0.3rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.2rem;
+        }
+
+        .skill-sublist li {
+            margin-bottom: 0.2rem;
+            font-size: 0.9rem;
+            color: var(--base1);
+            padding-left: 0.8rem;
+        }
+
+        .skill-sublist li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+        }
+
+        .skill-list strong {
+            color: var(--base2);
+            font-weight: 600;
+        }
+
+        /* Modal for Image Gallery */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border: 2px solid var(--base01);
+            border-radius: 4px;
+        }
+
+        .modal-close, .modal-prev, .modal-next {
+            position: absolute;
+            color: var(--base2);
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 1rem;
+        }
+
+        .modal-close {
+            top: 20px;
+            right: 30px;
+        }
+
+        .modal-prev {
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .modal-next {
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .modal-caption {
+            color: var(--base2);
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            
+            #sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--base01);
+                padding: 1rem;
+            }
+            
+            .site-title {
+                margin-bottom: 1rem;
+            }
+            
+            #tabs {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <div>
+            <h1 class="site-title">G. W.</h1>
+            <p class="site-description">
+                I'm a developer and cartographer with a passion for creating informative
+                and functional digital experiences and maps.
+            </p>
+        </div>
+        
+        <div class="contact-links">
+            <!-- <a href="mailto:seeresume@example.com"><i class="fas fa-envelope"></i> seeresume@example.com</a> -->
+            <a href="https://github.com/girubato" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </aside>
+
+    <!-- Globe Container -->
+    <div id="globe-container"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Navigation Tabs -->
+        <nav id="tabs">
+            <div class="tab active" data-page="landing">Home</div>
+            <!-- <div class="tab" data-page="portfolio">Portfolio</div> -->
+            <div class="tab" data-page="cv">CV</div>
+        </nav>
+
+        <!-- Pages -->
+        <div id="landing" class="page active">
+            <h1>Hello, I'm G!</h1>
+            <p class="tagline">GIS Developer & Analyst</p>
+            
+            <div class="intro-text">
+                <p>I'm a developer with a background in physics, currently focused on broadband infrastructure planning and geospatial analytics. I build spatial models to help determine internet coverage, funding eligibility, and optimize where new networks should go. A big part of my work involves writing Python scripts to automate repetitive geoprocessing tasks, designing ETL pipelines to clean and move data, and working with spatial databases to run complex queries efficiently.</p>
+
+                <p>I often use cloud platforms like AWS to scale up data processing or host dashboards and services for clients and internal teams. More recently, I've started integrating AI tools to support tasks like data extraction, report generation, or classification workflows. Whether it's deploying an ArcGIS solution, wrangling data with Python, or building something from scratch with open-source tools, I aim to make spatial analysis faster, clearer, and easier to share.
+            </div>
+
+            <div class="featured-work">
+                <h2>Featured Work</h2>
+                    <a href="https://github.com/girubato/broadband-data-explorer" target="_blank" style="text-decoration: none; color: inherit; display: block;">
+                        <div class="featured-item">
+                            <img src="https://private-user-images.githubusercontent.com/76228466/476380752-890cfde0-5a17-4634-be86-2452a7e8f434.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTYxMzgzNjIsIm5iZiI6MTc1NjEzODA2MiwicGF0aCI6Ii83NjIyODQ2Ni80NzYzODA3NTItODkwY2ZkZTAtNWExNy00NjM0LWJlODYtMjQ1MmE3ZThmNDM0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA4MjUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwODI1VDE2MDc0MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTRkNmJhMmQ3NmYzMGZkOGZkYTE3NjAxNjMwZGNkZWVkMjNiYjExMDJkZDk2OTY0NWFlMDI4OTAyMDBlMjQ0YWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.sdoi24iX-Dbfn_wJDCA-0nikrK_3yRSdUm8qtpFjkVY" alt="Featured Code">
+                            <div>
+                                <h3>Interactive Broadband Data Explorer</h3>
+                                <p>A data exploration tool using Python, PostgreSQL/PostGIS, and Folium for geospatial visualization.</p>
+                            </div>
+                        </div>
+                    </a>
+            </div>
+        </div>
+
+        <div id="portfolio" class="page">
+            <h2>Portfolio</h2>
+            <p>Browse my collection of code projects and cartographic works.</p>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="code">Code</button>
+                <button class="filter-btn" data-filter="maps">Maps</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-type="maps">
+                    <img src="https://placehold.co/600x400" alt="Map Project 1" class="gallery-image">
+                    <div class="portfolio-info">
+                        <h3>Topographic Analysis</h3>
+                        <p>Detailed topographic map of the Alpine region</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-type="code">
+                    <img src="https://placehold.co/600x400" alt="Code Project 1">
+                    <div class="portfolio-info">
+                        <h3>API Integration Framework</h3>
+                        <p>A modular system for connecting multiple data sources</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-type="maps">
+                    <img src="https://placehold.co/600x400" alt="Map Project 2" class="gallery-image">
+                    <div class="portfolio-info">
+                        <h3>Migration Patterns</h3>
+                        <p>Visualization of bird migration patterns across continents</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-type="code">
+                    <img src="https://placehold.co/600x400" alt="Code Project 2">
+                    <div class="portfolio-info">
+                        <h3>Data Processing Tool</h3>
+                        <p>Efficient processing of large geospatial datasets</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-type="maps">
+                    <img src="https://placehold.co/600x400" alt="Map Project 3" class="gallery-image">
+                    <div class="portfolio-info">
+                        <h3>Urban Development</h3>
+                        <p>Historical growth of metropolitan areas 1950-2020</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-type="code">
+                    <img src="https://placehold.co/600x400" alt="Code Project 3">
+                    <div class="portfolio-info">
+                        <h3>Interactive Web App</h3>
+                        <p>Real-time data visualization platform</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cv" class="page">
+            <h2>Curriculum Vitae</h2>
+            
+            <div class="cv-section">
+                <h2>Experience</h2>
+                <div class="cv-item">
+                    <h3>GIS Analyst</h3>
+                    <div class="cv-date">August 2022 - Present</div>
+                    <p>[Cannot disclose] | Remote</p>
+                    <ul>
+                        <li>Designed and implemented Python-based models to estimate broadband coverage, grant eligibility, and funding outcomes for the BEAD digital equity program.</li>
+                        <li>Developed a data pipeline to automate the process of downloading and processing data from multiple sources, including the US Census Bureau, the National Science Foundation, and the Federal Communications Commission.</li>
+                        <li>Utilized geospatial analysis tools such as QGIS, ArcGIS, and Mapbox to visualize and analyze data, and created interactive maps and visualizations to communicate findings to stakeholders.</li>
+                        <li>Collaborated with cross-functional teams to ensure data accuracy and completeness, and to identify and address potential issues or limitations.</li>
+                        <li>Automated geoprocessing workflows and developed interactive web-based dashboards using ArcGIS API for Python and Arcade to visualize broadband expansion scenarios.</li>
+                        <li>Created a Flask-based web application integrating SQLAlchemy for database management and Amazon S3 for efficient data storage.</li>
+                        <li>Leveraged AWS EC2 for scalable computing to handle large geospatial datasets and grant funding simulations.</li>
+                        <li>Transformed legacy cost estimation models from VBA into Python, improving efficiency and reproducibility.</li>
+                    </ul>
+
+                </div>
+                <div class="cv-item">
+                    <h3>Physics Research Assistant</h3>
+                    <div class="cv-date">2021</div>
+                    <ul>
+                        <li>Conducted research into exceptional points in topology, an emerging theory in the field of quantum optics; used Wolfram Language and Mathematica to develop and mathematically model a Hamiltonian that exhibits exceptional topological properties; presented at the 2022 Student Symposium.</li>
+                        <li>Authored a comprehensive thesis paper, An Introduction to the Topology of Non-Hermitian Systems and Exceptional Points, using Wolfram Language to create mathematical models and perform data-driven analyses to support research findings.</li>
+                    </ul>
+
+                </div>
+                <div class="cv-item">
+                    <h3>Physics Research Assistant</h3>
+                    <div class="cv-date">2019</div>
+                    <ul>
+                        <li>Conducted research into stochastic systems as they pertain to problems in thermal and statistical mechanics; used Wolfram Language and Mathematica to model stochastic braid groups and nonequilibrium fluctuations in molecular motors containing a Brownian ratchet.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="cv-section">
+                <h2>Education</h2>
+                <div class="cv-item">
+                    <h3>B.S. in Physics, 2022</h3>
+                    <!-- <div class="cv-date">2022</div>
+                    <p>U of R</p> -->
+                </div>
+                <div class="cv-item">
+                    <h3>B.A. in Mathematics and Archaeology, 2022</h3>
+                    <!-- <div class="cv-date">2022</div>
+                    <p>U of R</p> -->
+                </div>
+            </div>
+            
+        <div class="cv-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>GIS Development & Programming</h3>
+                    <ul class="skill-list">
+                        <li><strong>Python Development:</strong>
+                            <ul class="skill-sublist">
+                                <li>Geospatial Analytics: GeoPandas, ArcPy, Shapely, GDAL/OGR</li>
+                                <li>Data Analysis: Pandas, NumPy, SciPy</li>
+                                <li>Web APIs: Flask, REST services, boto3</li>
+                                <li>Automation: Selenium, BeautifulSoup, ETL pipelines</li>
+                            </ul>
+                        </li>
+                        <li><strong>GIS Platforms & Tools:</strong>
+                            <ul class="skill-sublist">
+                                <li>ESRI Suite: ArcGIS Pro, ArcGIS Server, Portal, Arcade scripting</li>
+                                <li>Open Source: QGIS, PostGIS</li>
+                                <li>Coordinate systems, projections, spatial indexing</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Data & Visualization</h3>
+                    <ul class="skill-list">
+                        <li><strong>Spatial Databases:</strong>
+                            <ul class="skill-sublist">
+                                <li>PostGIS, PostgreSQL, SQLite/SpatiaLite</li>
+                                <li>Spatial queries, indexing, performance optimization</li>
+                                <li>ORM frameworks: SQLAlchemy with GeoAlchemy2</li>
+                            </ul>
+                        </li>
+                        <li><strong>Interactive Dashboards:</strong>
+                            <ul class="skill-sublist">
+                                <li>Web Mapping: ArcGIS API for Python/JavaScript, Leaflet, Folium</li>
+                                <li>Dashboards: Plotly Dash, ESRI Dashboards, Power BI</li>
+                                <li>Static Viz: Matplotlib, Seaborn</li>
+                            </ul>
+                        </li>
+                        <li><strong>Data Processing:</strong>
+                            <ul class="skill-sublist">
+                                <li>ETL pipelines, data cleaning, validation</li>
+                                <li>Raster/vector analysis, geoprocessing workflows</li>
+                                <li>API integration, web scraping, JSON/XML parsing</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Infrastructure & Operations</h3>
+                    <ul class="skill-list">
+                        <li><strong>Cloud & Deployment:</strong>
+                            <ul class="skill-sublist">
+                                <li>AWS: EC2, S3, RDS, Lambda functions</li>
+                                <li>Containerization: Docker, container orchestration</li>
+                            </ul>
+                        </li>
+                        <li><strong>System Administration:</strong>
+                            <ul class="skill-sublist">
+                                <li>Linux/UNIX servers, SSH, bash scripting</li>
+                                <li>CI/CD pipelines, automated deployment</li>
+                                <li>Server monitoring, performance optimization</li>
+                            </ul>
+                        </li>
+                        <li><strong>Project Management:</strong>
+                            <ul class="skill-sublist">
+                                <li>Agile/Scrum methodologies, sprint planning</li>
+                                <li>Cross-platform development (Windows, macOS, Linux)</li>
+                                <li>Technical documentation, code review processes</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="cv-section">
+            <h2>Certifications</h2>
+            <div class="cv-item">
+                <h3>AWS Certified Solutions Architect - Associate</h3>
+                <div class="cv-date">TBC</div>
+                <p>Amazon Web Services</p>
+            </div>
+            <div class="cv-item">
+                <h3>GIS Professional (GISP) Certification</h3>
+                <div class="cv-date">TBC</div>
+                <p>GIS Certification Institute</p>
+            </div>
+            <div class="cv-item">
+                <h3>Esri Technical Certification</h3>
+                <div class="cv-date">TBC</div>
+                <p>Esri</p>
+            </div>
+        </div>
+    </main> -->
+
+    <!-- Image Gallery Modal -->
+    <div class="modal" id="imageModal">
+        <button class="modal-close">&times;</button>
+        <button class="modal-prev">&lt;</button>
+        <button class="modal-next">&gt;</button>
+        <div class="modal-content">
+            <img src="" alt="">
+            <p class="modal-caption"></p>
+        </div>
+    </div>
+
+    <script>
+        // Tab navigation
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and pages
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding page
+                tab.classList.add('active');
+                const pageId = tab.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+            });
+        });
+
+        // Portfolio filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all filter buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                const portfolioItems = document.querySelectorAll('.portfolio-item');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-type') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Image gallery functionality
+        const galleryImages = document.querySelectorAll('.gallery-image');
+        const modal = document.getElementById('imageModal');
+        const modalImg = modal.querySelector('img');
+        const modalCaption = modal.querySelector('.modal-caption');
+        const closeModal = modal.querySelector('.modal-close');
+        const prevBtn = modal.querySelector('.modal-prev');
+        const nextBtn = modal.querySelector('.modal-next');
+        
+        let currentImageIndex = 0;
+        
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentImageIndex = index;
+                openModal();
+            });
+        });
+        
+        function openModal() {
+            modal.style.display = 'flex';
+            updateModalImage();
+        }
+        
+        function updateModalImage() {
+            const imgSrc = galleryImages[currentImageIndex].getAttribute('src');
+            const caption = galleryImages[currentImageIndex].parentElement.querySelector('h3').textContent;
+            
+            modalImg.setAttribute('src', imgSrc);
+            modalCaption.textContent = caption;
+        }
+        
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateModalImage();
+        }
+        
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateModalImage();
+        }
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        nextBtn.addEventListener('click', nextImage);
+        prevBtn.addEventListener('click', prevImage);
+        
+        // Keyboard navigation for gallery
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display === 'flex') {
+                if (e.key === 'Escape') {
+                    modal.style.display = 'none';
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            }
+        });
+    </script>
+    <script>
+        // Initialize Three.js globe
+        function initGlobe() {
+            const container = document.getElementById('globe-container');
+            
+            // Create scene
+            const scene = new THREE.Scene();
+            
+            // Create camera
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+            
+            // Create renderer
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+            
+            // Create earth geometry
+            const geometry = new THREE.SphereGeometry(2, 32, 32);
+            
+            // Create earth material with subtle texture
+            const textureLoader = new THREE.TextureLoader();
+            const earthTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Moon_texture.jpg/960px-Moon_texture.jpg');
+            const material = new THREE.MeshPhongMaterial({ 
+                map: earthTexture,
+                transparent: true,
+                opacity: 0.7
+            });
+            
+            // Create earth mesh
+            const earth = new THREE.Mesh(geometry, material);
+            scene.add(earth);
+            
+            // Add ambient light
+            const ambientLight = new THREE.AmbientLight(0x404040);
+            scene.add(ambientLight);
+            
+            // Add directional light
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+            directionalLight.position.set(5, 3, 5);
+            scene.add(directionalLight);
+            
+            // Add stars background
+            const starGeometry = new THREE.BufferGeometry();
+            const starMaterial = new THREE.PointsMaterial({
+                color: 0xffffff,
+                size: 0.1,
+                transparent: true
+            });
+            
+            const starVertices = [];
+            for (let i = 0; i < 10000; i++) {
+                const x = (Math.random() - 0.5) * 2000;
+                const y = (Math.random() - 0.5) * 2000;
+                const z = (Math.random() - 0.5) * 2000;
+                starVertices.push(x, y, z);
+            }
+            
+            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+            const stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
+            
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                // Rotate earth slowly
+                earth.rotation.y += 0.0005;
+                
+                renderer.render(scene, camera);
+            }
+            
+            animate();
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+        
+        // Initialize the globe
+        initGlobe();
+        
+        // Tab navigation
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and pages
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding page
+                tab.classList.add('active');
+                const pageId = tab.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+            });
+        });
+
+        // Portfolio filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all filter buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                const portfolioItems = document.querySelectorAll('.portfolio-item');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-type') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
